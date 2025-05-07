@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import {
   EnvelopeIcon,
-  PhoneIcon,
   MapPinIcon,
+  UserGroupIcon,
 } from "@heroicons/react/24/outline";
+import { UserIcon } from "@heroicons/react/16/solid";
 
 const Contact = () => {
   return (
@@ -18,121 +19,80 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-gray-600 dark:text-gray-300">
-            Interested in working together? Let's discuss your project!
+          <h2 className="text-3xl font-bold mb-4">Get to know me better.</h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            I’m a proud girl dad who loves cooking and good coffee. Every now
+            and then, I hit the climbing gym, and running is my favorite way to
+            clear my head.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+          {/* Portrait Image with 3D Animation */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            whileHover={{ rotateY: 15, scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="w-40 h-40 rounded-full overflow-hidden shadow-lg bg-gray-300 dark:bg-gray-700 flex items-center justify-center"
+            style={{ perspective: 1000 }}
           >
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <EnvelopeIcon className="h-6 w-6 text-primary" />
-                <a
-                  href="mailto:nejc.bevk@gmail.com"
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
-                >
-                  nejc.bevk@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-4">
-                <MapPinIcon className="h-6 w-6 text-primary" />
-                <span className="text-gray-600 dark:text-gray-300">
-                  Slovenia, EU
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <h4 className="text-xl font-bold mb-4">Find Me Online</h4>
-              <div className="flex space-x-4">
-                <a
-                  href="https://github.com/nejcbe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="https://linkedin.com/in/nejcbevk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </div>
+            <img
+              src="/portrait-placeholder.png"
+              alt="Nejc Bevk Portrait"
+              className="object-cover w-full h-full"
+            />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+          {/* Contact Links */}
+          <div className="space-y-6 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+              <UserIcon className="h-6 w-6 text-primary" />
+              <span className="text-gray-600 dark:text-gray-300">
+                Nejc Bevk
+              </span>
+            </div>
+
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+              <EnvelopeIcon className="h-6 w-6 text-primary" />
+              <a
+                href="mailto:nejc.bevk@gmail.com"
+                className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
               >
-                Send Message
-              </button>
-            </form>
-          </motion.div>
+                nejc.bevk@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+              <MapPinIcon className="h-6 w-6 text-primary" />
+              <span className="text-gray-600 dark:text-gray-300">
+                Radovljica, Slovenia
+              </span>
+            </div>
+            <div className="flex items-center justify-center md:justify-start space-x-4 mt-4">
+              <a
+                href="https://github.com/nejcbe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors text-lg font-semibold"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://linkedin.com/in/nejcbevk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors text-lg font-semibold"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://instagram.com/nejcbevk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors text-lg font-semibold"
+              >
+                Instagram
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

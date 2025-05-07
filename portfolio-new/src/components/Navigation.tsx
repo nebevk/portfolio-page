@@ -7,14 +7,23 @@ import { Monoton } from "next/font/google";
 
 const monoton = Monoton({ weight: "400", subsets: ["latin"] });
 
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) {
+    const yOffset = -70; // Offset for fixed navbar
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "about" },
+    { name: "Projects", href: "projects" },
+    { name: "Contact", href: "contact" },
   ];
 
   return (
@@ -34,8 +43,16 @@ const Navigation = () => {
             {navItems.map((item) => (
               <a
                 key={item.name}
-                href={item.href}
-                className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+                href={item.href === "#" ? "#" : `#${item.href}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (item.href === "#") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    scrollToSection(item.href);
+                  }
+                }}
+                className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors cursor-pointer"
               >
                 {item.name}
               </a>
@@ -68,9 +85,17 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <a
                   key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  href={item.href === "#" ? "#" : `#${item.href}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    if (item.href === "#") {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    } else {
+                      scrollToSection(item.href);
+                    }
+                  }}
+                  className="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors cursor-pointer"
                 >
                   {item.name}
                 </a>

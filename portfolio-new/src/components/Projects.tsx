@@ -5,20 +5,42 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Spletna stran Roran",
+    title: "Whalesome",
     description:
-      "Primer izziva v katerem grafično predlogo Roran pretvoril v identično in delujočo spletno stran.",
+      "My playground project, built on Vue.js & Nuxt, deployed on Netlify.",
+    image: "/whalesome.jpg",
+    tags: ["Vue.js", "Nuxt", "Netlify"],
+    link: "#",
+    details:
+      "A personal playground for experimenting with Vue.js and Nuxt, deployed on Netlify.",
+    moreImages: [],
+  },
+  {
+    title: "Configurator User Interfaces",
+    description:
+      "Building templates and user interfaces for various product configurators, from camper vans to jackets.",
+    image: "/ocean-bg.jpg",
+    tags: ["Angular", "TypeScript", "Webflow", "Shopify", "WooCommerce"],
+    link: "#",
+    details:
+      "Building templates and UIs for configurators for different products using Angular, TypeScript, Webflow, Shopify, WooCommerce.",
+    moreImages: [],
+  },
+  {
+    title: "Roran Website",
+    description:
+      "A challenge where I converted the Roran graphic template into a fully functional website. Modern technologies and best practices for responsive design were used.",
     image: "/roranscreens.jpg",
     tags: ["Bootstrap", "HTML5", "CSS", "JavaScript"],
     link: "https://nebevk.github.io/roran/",
     details:
-      "Ta projekt je bil izziv pretvorbe grafične predloge v popolnoma funkcionalno spletno stran. Uporabljene so bile sodobne tehnologije in najboljše prakse za responsive design.",
+      "This project was a challenge to convert a graphic template into a fully functional website. Modern technologies and best practices for responsive design were used.",
     moreImages: [],
   },
   {
-    title: "Celostna grafična podoba Varilnice Bevk",
+    title: "Varilnica Bevk Visual Identity",
     description:
-      "V sklopu diplomske naloge sem ustvaril celostno grafično podobo mikropivovarne. Varilnica Bevk je plod moje domišlije njena podoba pa bo nekoč kosila moje domače pivo.",
+      "As part of my thesis, I created the complete visual identity for a microbrewery. Varilnica Bevk is a product of my imagination and its branding will one day represent my home-brewed beer.",
     images: [
       "/vbevk.jpg",
       "/vbevkpivo.jpg",
@@ -28,7 +50,7 @@ const projects = [
     tags: ["Illustrator", "Photoshop"],
     link: "https://repozitorij.uni-lj.si/IzpisGradiva.php?id=103444&lang=slv",
     details:
-      "Projekt je vključeval oblikovanje logotipa, etiket, vizitk in drugih grafičnih elementov za mikropivovarno.",
+      "The project included designing the logo, labels, business cards, and other graphic elements for the microbrewery.",
     moreImages: [
       "/vbevk.jpg",
       "/vbevkpivo.jpg",
@@ -51,9 +73,9 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Moji Projekti</h2>
+          <h2 className="text-3xl font-bold mb-4">My Projects</h2>
           <p className="text-gray-600 dark:text-gray-300">
-            Nekaj izbranih projektov iz mojega portfolia
+            A selection of projects from my portfolio
           </p>
         </motion.div>
 

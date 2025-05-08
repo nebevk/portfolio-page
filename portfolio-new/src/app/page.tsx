@@ -30,11 +30,11 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-4 mt-20">
             Hi, I'm <span className="text-primary">Nejc</span>
           </h1>
-          <p className="text-xl text-secondary mb-3">
+          <p className="text-xl text-secondary mb-1">
             Frontend developer with a thing for cooking good food and even
-            better user experiences
+            better user experiences.
           </p>
-          <p className="text-xl text-secondary mb-3">
+          <p className="text-xl text-secondary mb-2">
             Welcome to my online resume!
           </p>
           {/* <div className="flex justify-center gap-4">

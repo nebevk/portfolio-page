@@ -16,7 +16,7 @@ const CvSlo = () => (
             href="mailto:nejc.bevk@gmail.com"
             className="underline text-blue-700"
           >
-            nejc.bevk@gmail.com
+            ne.bevk@gmail.com
           </a>
         </div>
         <div className="mb-1 text-sm">Lokacija: Radovljica, Slovenija</div>

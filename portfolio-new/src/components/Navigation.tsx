@@ -28,7 +28,7 @@ const Navigation = () => {
 
   return (
     <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="flex items-center">
             <img

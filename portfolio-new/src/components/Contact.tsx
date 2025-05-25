@@ -68,7 +68,7 @@ const Contact = () => {
             </div>
             <div className="flex items-center justify-center md:justify-start space-x-4 mt-4">
               <a
-                href="https://github.com/nejcbe"
+                href="https://github.com/nebevk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors text-lg font-semibold"
@@ -84,7 +84,7 @@ const Contact = () => {
                 LinkedIn
               </a>
               <a
-                href="https://instagram.com/nejcbevk"
+                href="https://www.instagram.com/nejcbevk/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors text-lg font-semibold"

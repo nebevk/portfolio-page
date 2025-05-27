@@ -5,12 +5,23 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "Maternity Leave Calculator",
+    description:
+      "A simple calculator to help you calculate your maternity leave.",
+    image: "/maternity-leave-calculator.jpg",
+    link: "https://maternity-calculator.netlify.app/",
+    tags: ["PrimeVue", "Netlify"],
+    details:
+      "A simple calculator to help you calculate your maternity leave. Based on Slovenian maternity leave law.",
+    moreImages: [],
+  },
+  {
     title: "Whalesome",
     description:
       "My playground project, built on Vue.js & Nuxt, deployed on Netlify.",
     image: "/whalesome.jpg",
+    link: "https://whalesome.netlify.app/",
     tags: ["Vue.js", "Nuxt", "Netlify"],
-    link: "#",
     details:
       "A personal playground for experimenting with Vue.js and Nuxt, deployed on Netlify.",
     moreImages: [],

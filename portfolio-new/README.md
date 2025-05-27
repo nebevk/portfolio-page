@@ -1,6 +1,6 @@
 # Nejc Bevk Portfolio
 
-A modern, creative portfolio website for Nejc Bevk, Frontend/Web Developer from Slovenia.
+A modern, creative portfolio website for me.
 
 ## 🚀 Tech Stack
 
@@ -9,16 +9,6 @@ A modern, creative portfolio website for Nejc Bevk, Frontend/Web Developer from 
 - **Animation:** [Framer Motion](https://www.framer.com/motion/)
 - **Icons:** [Heroicons](https://heroicons.com/)
 - **Deployment:** [Netlify](https://www.netlify.com/) (static export)
-
-## ✨ Features
-
-- Responsive, modern design
-- Animated sections and transitions
-- Creative dark ocean background
-- Custom image logo in navigation
-- Real project showcase with expandable cards (show more details/images inline)
-- About and Contact sections
-- Easy to customize and extend
 
 ## 📦 Getting Started
 
@@ -32,6 +22,7 @@ A modern, creative portfolio website for Nejc Bevk, Frontend/Web Developer from 
    npm install
    ```
 3. **Run locally:**
+   Make sure to run it inside the portfolio-new folder
    ```bash
    npm run dev
    ```
@@ -45,20 +36,6 @@ A modern, creative portfolio website for Nejc Bevk, Frontend/Web Developer from 
 - Add new objects to the `projects` array. Each project can have:
   - `title`, `description`, `image` or `images`, `tags`, `link`, `details`, `moreImages`.
 - Place project images in the `public/` directory and reference them as `/yourimage.jpg`.
-
-### Change Logo
-
-- Replace `public/logowhite_03.png` with your own logo image.
-- The navigation will automatically use this image.
-
-### Change Background
-
-- Replace `public/ocean-bg.jpg` with your preferred background image.
-- Adjust overlay or blur in `src/app/layout.tsx` if needed.
-
-### Update About/Contact
-
-- Edit `src/components/About.tsx` and `src/components/Contact.tsx` for your info, skills, and links.
 
 ## 🌍 Deployment (Netlify)
 

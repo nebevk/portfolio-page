@@ -75,7 +75,7 @@ const Projects = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,13 +84,13 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">My Projects</h2>
-          <p className="text-gray-600 dark:text-gray-300">
+          <h2 className="section-title">My Projects</h2>
+          <p className="section-subtitle text-sm sm:text-base">
             A selection of projects from my portfolio
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -98,78 +98,82 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              {project.image && (
-                <div className="relative h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full"
-                  />
+              <div className="relative">
+                <img
+                  src={project.image || project.images?.[0] || "/ocean-bg.jpg"}
+                  alt={project.title}
+                  className="w-full h-40 sm:h-48 object-cover"
+                />
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+                  <div className="bg-primary/90 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium">
+                    {project.tags[0]}
+                  </div>
                 </div>
-              )}
-              {project.images && (
-                <div className="grid grid-cols-2 gap-2 p-2 bg-gray-200 dark:bg-gray-700">
-                  {project.images.map((img, i) => (
-                    <img
-                      key={img}
-                      src={img}
-                      alt={project.title + " " + (i + 1)}
-                      className="object-cover w-full h-24 rounded"
-                    />
-                  ))}
-                </div>
-              )}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+              </div>
+              
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 text-sm sm:text-base">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                
+                <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                      className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <button
-                  className="text-primary hover:text-primary/80 transition-colors underline mb-2"
-                  onClick={() => setExpanded(expanded === index ? null : index)}
-                >
-                  {expanded === index ? "Show Less" : "Show More"}
-                </button>
+                
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                  {project.link !== "#" && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary text-sm py-2 px-3 sm:px-4 text-center"
+                    >
+                      View Project
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setExpanded(expanded === index ? null : index)}
+                    className="btn-secondary text-sm py-2 px-3 sm:px-4"
+                  >
+                    {expanded === index ? "Show Less" : "Learn More"}
+                  </button>
+                </div>
+                
                 {expanded === index && (
-                  <div className="mt-4">
-                    {project.details && (
-                      <p className="text-gray-700 dark:text-gray-200 mb-2">
-                        {project.details}
-                      </p>
-                    )}
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700"
+                  >
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">
+                      {project.details}
+                    </p>
                     {project.moreImages && project.moreImages.length > 0 && (
-                      <div className="grid grid-cols-2 gap-2 mt-2">
-                        {project.moreImages.map((img, i) => (
+                      <div className="grid grid-cols-2 gap-2">
+                        {project.moreImages.map((img, imgIndex) => (
                           <img
-                            key={img}
+                            key={imgIndex}
                             src={img}
-                            alt={project.title + " " + (i + 1)}
-                            className="object-cover w-full h-24 rounded"
+                            alt={`${project.title} ${imgIndex + 1}`}
+                            className="w-full h-16 sm:h-20 object-cover rounded"
                           />
                         ))}
                       </div>
                     )}
-                    <a
-                      href={project.link}
-                      className="text-primary hover:text-primary/80 transition-colors block mt-2"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Project →
-                    </a>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </motion.div>

@@ -5,6 +5,17 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "Pick'a Pic",
+    description:
+      "An interactive art preview application that allows users to preview and explore artwork using color similarity matching and image search.",
+    image: "/art-previewer.png",
+    link: "https://pick-a-pic.netlify.app/",
+    tags: ["Vue.js", "TypeScript", "Vite", "Tailwind CSS", "daisyUI", "Netlify"],
+    details:
+      "An interactive art preview application built with Vue 3, TypeScript, and Vite. Features include color similarity calculation using LAB color space, image search via Pexels API, and state management with Pinia. Styled with Tailwind CSS and daisyUI for a modern, responsive interface.",
+    moreImages: [],
+  },
+  {
     title: "Maternity Leave Calculator",
     description:
       "A simple calculator to help you calculate your maternity leave.",

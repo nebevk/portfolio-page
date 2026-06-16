@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import {
   EnvelopeIcon,
   MapPinIcon,
-  UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import { UserIcon } from "@heroicons/react/16/solid";
 
@@ -67,7 +66,7 @@ const Contact = () => {
             <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4">
               <EnvelopeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
               <a
-                href="mailto:nejc.bevk@gmail.com"
+                href="mailto:ne.bevk@gmail.com"
                 className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors text-sm sm:text-base break-all"
               >
                 ne.bevk@gmail.com

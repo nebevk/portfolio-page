@@ -13,7 +13,7 @@ const CvSlo = () => (
         <div className="mb-1 text-sm">
           E-pošta:{" "}
           <a
-            href="mailto:nejc.bevk@gmail.com"
+            href="mailto:ne.bevk@gmail.com"
             className="underline text-blue-700"
           >
             ne.bevk@gmail.com

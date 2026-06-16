@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://your-domain.com'), // Update this with your actual domain
+  metadataBase: new URL('https://nejcbevk.netlify.app'),
   openGraph: {
     title: "Nejc Bevk - Frontend Developer Portfolio",
     description: "Frontend developer with expertise in Angular, TypeScript, and modern web technologies.",
-    url: 'https://your-domain.com', // Update this with your actual domain
+    url: 'https://nejcbevk.netlify.app',
     siteName: "Nejc Bevk Portfolio",
     images: [
       {
@@ -87,6 +88,11 @@ export default function RootLayout({
         <main className="min-h-screen bg-transparent">{children}</main>
         <Footer />
         <BackToTop />
+        {/* 100% privacy-first analytics */}
+        <Script
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

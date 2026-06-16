@@ -5,6 +5,17 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "Kje so Igrala?",
+    description:
+      "A platform for discovering children's playgrounds across Slovenia. Parents browse an interactive map, filter by amenities like shade, fencing, and drinking water, read reviews, and contribute new playgrounds to a community-built database.",
+    image: "/playground-finder.png",
+    link: "https://playground-finder-seven.vercel.app/en/map",
+    tags: ["Next.js", "React", "TypeScript", "Leaflet", "Tailwind CSS", "daisyUI", "Vercel"],
+    details:
+      "\"Kje so igrala?\" (Where are the playgrounds?) helps parents find the right playground for their kids. The core is a full-screen interactive map, built with Leaflet and OpenStreetMap, that filters playgrounds by amenities (fenced, shade, drinking fountain, toilets, parking) and surface type (tartan, sand, grass, gravel), with a live result counter and one-click reset. Playgrounds carry parent ratings and reviews, and the homepage curates \"Most popular\" and \"Latest additions\" sections. Signed-in users can add new playgrounds, making the database community-built. Fully bilingual with locale-prefixed routing, built on Next.js (App Router) and deployed on Vercel, styled with Tailwind CSS and daisyUI, with Cloudflare Turnstile protecting submissions.",
+    moreImages: [],
+  },
+  {
     title: "Pick'a Pic",
     description:
       "An interactive art preview application that allows users to preview and explore artwork using color similarity matching and image search.",

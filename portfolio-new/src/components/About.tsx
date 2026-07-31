@@ -2,6 +2,60 @@
 
 import { motion } from "framer-motion";
 
+type Role = {
+  title: string;
+  period: string;
+  description: string;
+};
+
+type Experience = {
+  company: string;
+  current?: boolean;
+  roles: Role[];
+};
+
+const experiences: Experience[] = [
+  {
+    company: "Tronog",
+    current: true,
+    roles: [
+      {
+        title: "Development Lead",
+        period: "May 2023 – Present",
+        description:
+          "Leading a small development team, managing client relations, and integrating custom solutions.",
+      },
+      {
+        title: "Junior Front End Developer",
+        period: "Nov 2021 – May 2023",
+        description: "Building configurator interfaces and templates.",
+      },
+    ],
+  },
+  {
+    company: "Top Majice d.o.o.",
+    roles: [
+      {
+        title: "Social Media Designer and Manager",
+        period: "Nov 2019 – May 2023",
+        description:
+          "Designed social content, managed marketing, and created T-shirt designs.",
+      },
+    ],
+  },
+  {
+    company: "HENNLICH Slovenija",
+    roles: [
+      {
+        title: "Multimedia Specialist (Part-time)",
+        period: "Aug 2019 – May 2023",
+        description:
+          "Designed online content, produced videos, and created promotional materials.",
+      },
+    ],
+  },
+];
+
 const About = () => {
   return (
     <section id="about" className="py-16 sm:py-20">
@@ -28,36 +82,39 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Education</h3>
-            <ul className="space-y-4 sm:space-y-6">
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">
+              Education
+            </h3>
+            <ul className="space-y-6 sm:space-y-8">
               <li>
                 <div className="font-bold text-base sm:text-lg">
                   University of Ljubljana, Faculty of Computer and Information
                   Science
                 </div>
-                <div className="text-gray-700 dark:text-gray-300 text-sm mb-1">
+                <div className="text-gray-700 dark:text-gray-300 text-sm mt-1">
                   Master of Science - MS, Intermedia/Multimedia
                 </div>
-                <div className="text-gray-500 dark:text-gray-400 text-xs mb-2">
-                  Oct 2018 - Dec 2021
+                <div className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                  Oct 2018 – Dec 2021
                 </div>
               </li>
               <li>
                 <div className="font-bold text-base sm:text-lg">
                   University of Ljubljana, Faculty of Electrical Engineering
                 </div>
-                <div className="text-gray-700 dark:text-gray-300 text-sm mb-1">
-                  Bachelor's degree, Digital Communication and Media/Multimedia
+                <div className="text-gray-700 dark:text-gray-300 text-sm mt-1">
+                  Bachelor&apos;s degree, Digital Communication and
+                  Media/Multimedia
                 </div>
-                <div className="text-gray-500 dark:text-gray-400 text-xs mb-2">
-                  2014 - 2018
+                <div className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                  2014 – 2018
                 </div>
               </li>
             </ul>
@@ -68,95 +125,59 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-4 sm:space-y-6"
           >
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4">Experience Timeline</h3>
-              <ol className="relative border-l border-blue-200 dark:border-blue-800">
-                <li className="mb-8 sm:mb-10 ml-4 sm:ml-6">
-                  <span className="flex absolute -left-2 sm:-left-3 justify-center items-center w-5 h-5 sm:w-6 sm:h-6 bg-green-200 rounded-full ring-6 sm:ring-8 ring-white dark:ring-gray-900 dark:bg-green-900">
-                    <svg
-                      className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-green-600 dark:text-green-300"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z" />
-                    </svg>
-                  </span>
-                  <h4 className="font-bold text-base sm:text-lg">Tronog</h4>
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">
+              Experience
+            </h3>
 
-                  <div className="ml-3 sm:ml-4">
-                    <div className="font-semibold text-sm sm:text-base">
-                      Development Lead{" "}
-                      <span className="text-xs text-gray-500">
-                        (May 2023 – Present)
+            <ol className="relative border-l border-white/15">
+              {experiences.map((job) => (
+                <li key={job.company} className="relative mb-10 last:mb-0 pl-6 sm:pl-8">
+                  <span
+                    className={`absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full ${
+                      job.current
+                        ? "bg-emerald-400 shadow-[0_0_0_4px_rgba(52,211,153,0.2)]"
+                        : "bg-white/35"
+                    }`}
+                    aria-hidden="true"
+                  />
+
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
+                    <h4 className="font-bold text-base sm:text-lg leading-tight">
+                      {job.company}
+                    </h4>
+                    {job.current && (
+                      <span className="rounded-full bg-emerald-400/15 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-emerald-300">
+                        Present
                       </span>
-                    </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
-                      Leading small development team, managing client relations
-                      and integrating custom solutions
-                    </div>
-                    <div className="font-semibold text-sm sm:text-base">
-                      Junior Front End Developer{" "}
-                      <span className="text-xs text-gray-500">
-                        (Nov 2021 – May 2023)
-                      </span>
-                    </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
-                      Building configurator interfaces and templates
-                    </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-4">
+                    {job.roles.map((role, roleIndex) => (
+                      <div
+                        key={`${job.company}-${role.title}`}
+                        className={
+                          job.roles.length > 1 && roleIndex > 0
+                            ? "border-l border-white/10 pl-3 sm:pl-4"
+                            : undefined
+                        }
+                      >
+                        <div className="font-semibold text-sm sm:text-[15px] text-gray-100">
+                          {role.title}
+                        </div>
+                        <div className="text-sm text-gray-500 mt-0.5">
+                          {role.period}
+                        </div>
+                        <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">
+                          {role.description}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </li>
-                <li className="mb-8 sm:mb-10 ml-4 sm:ml-6">
-                  <span className="flex absolute -left-2 sm:-left-3 justify-center items-center w-5 h-5 sm:w-6 sm:h-6 bg-gray-200 rounded-full ring-6 sm:ring-8 ring-white dark:ring-gray-900 dark:bg-gray-900">
-                    <svg
-                      className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-600 dark:text-gray-200"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z" />
-                    </svg>
-                  </span>
-                  <h4 className="font-bold text-base sm:text-lg">Top Majice d.o.o.</h4>
-                  <div className="ml-3 sm:ml-4">
-                    <div className="font-semibold text-sm sm:text-base">
-                      Social Media Designer and Manager{" "}
-                      <span className="text-xs text-gray-500">
-                        (Nov 2019 – May 2023 · 3 yrs 7 mos)
-                      </span>
-                    </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
-                      Designed social content, managed marketing, created T-shirt
-                      designs
-                    </div>
-                  </div>
-                </li>
-                <li className="mb-8 sm:mb-10 ml-4 sm:ml-6">
-                  <span className="flex absolute -left-2 sm:-left-3 justify-center items-center w-5 h-5 sm:w-6 sm:h-6 bg-gray-300 rounded-full ring-6 sm:ring-8 ring-white dark:ring-gray-900 dark:bg-gray-700">
-                    <svg
-                      className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-700 dark:text-gray-200"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z" />
-                    </svg>
-                  </span>
-                  <h4 className="font-bold text-base sm:text-lg">HENNLICH Slovenija</h4>
-                  <div className="ml-3 sm:ml-4">
-                    <div className="font-semibold text-sm sm:text-base">
-                      Multimedia Specialist (Part-time){" "}
-                      <span className="text-xs text-gray-500">
-                        (Aug 2019 – May 2023 · 3 yrs 10 mos)
-                      </span>
-                    </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
-                      Designed online content, produced videos, created
-                      promotional materials
-                    </div>
-                  </div>
-                </li>
-              </ol>
-            </div>
+              ))}
+            </ol>
           </motion.div>
         </div>
       </div>

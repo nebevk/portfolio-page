@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 const scrollToSection = (id: string) => {
   const el = document.getElementById(id);
   if (el) {
-    const yOffset = -70; // Offset for fixed navbar
+    const yOffset = -88;
     const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <div className="container py-16 sm:py-20">
+      <div id="home" className="container py-16 sm:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
